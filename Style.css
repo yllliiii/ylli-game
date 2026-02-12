@@ -1,0 +1,200 @@
+body {
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    /* Retro font */
+    color: white;
+}
+
+#game-container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: #4CAF50;
+    /* Green Pitch */
+    border: 4px solid #fff;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* UI Layer */
+#ui-layer {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    text-shadow: 2px 2px #000;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    color: #FFD700;
+}
+
+#score-board {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+#message-display {
+    font-size: 16px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    display: inline-block;
+}
+
+/* Goal Area - Clean, no crowd */
+#goal-area {
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    width: 300px;
+    height: 120px;
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+    background: rgba(255, 255, 255, 0.1);
+    /* Simple net effect */
+    overflow: hidden;
+}
+
+/* The Goalkeeper - Geometric Man */
+#goalkeeper {
+    position: absolute;
+    bottom: 0;
+    left: 125px;
+    width: 50px;
+    height: 60px;
+    /* Body height */
+    background-color: #FF5722;
+    /* Orange Shirt */
+    border: 2px solid #000;
+    border-radius: 5px 5px 0 0;
+    transition: left 0.5s ease-out;
+}
+
+/* The Head of the Keeper */
+#goalkeeper::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    /* Above the body */
+    left: 10px;
+    /* Centered (50 - 30) / 2 */
+    width: 30px;
+    height: 25px;
+    background-color: #FFC107;
+    /* Face color */
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+/* Pitch Details */
+#pitch {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, #4CAF50 0%, #388E3C 100%);
+    /* Grass texture gradient */
+}
+
+#ball {
+    position: absolute;
+    bottom: 100px;
+    /* Starts on penalty spot */
+    left: 285px;
+    /* Center (600/2) - half width (30/2) */
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 2px solid #000;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    /* Ensure it's on top of the pitch */
+}
+
+/* Target Reticle - Now an Arrow! */
+#target-rail {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    /* Taller for arrow */
+}
+
+#target {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid yellow;
+    /* Upward pointing arrow */
+    background-color: transparent;
+    border-top: none;
+    filter: drop-shadow(0px 0px 5px black);
+}
+
+/* Celebration Animation */
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.celebrating {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}

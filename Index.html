@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Penalty Shootout</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="game-container">
+
+        <div id="ui-layer">
+            <h1>PENALTY KICK</h1>
+            <div id="score-board">
+                <span>GOALS: <span id="goals">0</span></span>
+                <span>MISSES: <span id="misses">0</span></span>
+            </div>
+            <div id="message-display">PRESS SPACE TO START</div>
+        </div>
+
+        <div id="goal-area">
+            <div id="goal-post"></div>
+            <div id="goalkeeper"></div>
+        </div>
+
+        <div id="pitch">
+            <div id="penalty-spot"></div>
+            <div id="ball"></div>
+        </div>
+
+        <!-- The Target Reticle moves left/right here -->
+        <div id="target-rail">
+            <div id="target"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
